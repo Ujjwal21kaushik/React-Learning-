@@ -11,7 +11,7 @@ export default function Show() {
     axios
       .get("/products")
       .then((product) => {
-        console.log(product);
+        // console.log(product);
         setProduct(product.data);
       })
       .catch((error) => console.log(error));

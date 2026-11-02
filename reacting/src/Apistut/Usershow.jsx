@@ -1,7 +1,13 @@
+import UserDetail from "./UserDetail";
 
 
 export default function Usershow(){
     return(
-        <div>user</div>
+        <div>
+            user
+            <UserDetail />
+        </div>
+
+        
     )
 }
