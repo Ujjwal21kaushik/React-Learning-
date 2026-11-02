@@ -24,21 +24,6 @@ import { MdPodcasts } from "react-icons/md";
 import Usershow from "./Apistut/Usershow.jsx";
 
 function App() {
-  const data = [
-    {
-      id: 1,
-      email: "john@gmail.com",
-      username: "johnd",
-      password: "m38rmF$",
-    },
-    {
-      id: 2,
-      email: "morrison@gmail.com",
-      username: "mor_2314",
-      password: "83r5^_",
-    },
-  ];
-
   return (
     <div>
       <nav className="w-full h-16 bg-yellow-400 flex justify-around items-center mb-6">
@@ -60,11 +45,9 @@ function App() {
           Show
         </Route>
         <Route path="/usershow" element={<Usershow />}>
-          User
+          <Route path="/usershow/:id" element={<UserDetail />}/>
         </Route>
-        {/* <Route path="/userdetail" element={<UserDetail />}>
-          UserDetail
-        </Route> */}
+
       </Routes>
     </div>
   );
