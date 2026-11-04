@@ -26,7 +26,7 @@ export default function Usershow(){
                 }
                 
             </div>
-            <hr className="mb-6" />
+            <hr className="mb-6 " />
             
             <Outlet />
         </div>
