@@ -1,13 +1,8 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link} from "react-router-dom";
 
 const Cards = ({element}) => {
-  const location = useLocation();
-
-  const detailPath = location.pathname === "/"
-    ? `/detail/${element.id}`
-    : `${location.pathname}/product/${element.id}`;
-    
+   
   return (
     <div className="w-50 h-78 border border-zinc-300 rounded-2xl overflow-hidden">
       <div className="w-full h-42 bg-black p-2">

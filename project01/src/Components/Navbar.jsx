@@ -10,9 +10,9 @@ function Navbar() {
       <div className="w-[15%] h-full bg-zinc-200 border-r border-white fixed left-0 top-0">
 
         <div className="w-fit mt-4 m-auto">
-          <a className="px-4 py-2 bg-green-600 text-zinc-100 font-medium rounded" href="#">
+          <Link to="/create" className="px-4 py-2 bg-green-600 text-zinc-100 font-medium rounded" href="#">
             Add product
-          </a>
+          </Link>
         </div>
 
         <hr className="w-full mt-4 text-zinc-100" />
