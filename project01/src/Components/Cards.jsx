@@ -1,15 +1,20 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import ProductDetail from "../Pages/ProductDetail";
+import { Link, useLocation } from "react-router-dom";
 
-const Cards = () => {
+const Cards = ({element}) => {
+  const location = useLocation();
+
+  const detailPath = location.pathname === "/"
+    ? `/detail/${element.id}`
+    : `${location.pathname}/product/${element.id}`;
+    
   return (
-    <div className="w-50 h-fit border border-zinc-300 rounded-2xl overflow-hidden">
+    <div className="w-50 h-78 border border-zinc-300 rounded-2xl overflow-hidden">
       <div className="w-full h-42 bg-black p-2">
         <img
           className="w-full h-full rounded-2xl object-cover"
-          src="https://images.unsplash.com/photo-1594619273130-2eddf0503a5a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
-          alt=""
+          src={element.image}
+          alt={element.name}
         />
       </div>
 
@@ -19,15 +24,15 @@ const Cards = () => {
             In Stock
           </span>
         </div>
-        <h1 className="text-white font-semibold my-1">Smart Watch</h1>
+        <h1 className="text-white font-semibold my-1">{element.name}</h1>
         <p className="text-zinc-300 leading-4 text-xs">
-          Stay connected and track your everyday activities with style.
+          {element.description}
         </p>
         <div className="flex items-center justify-between my-2 ">
-          <h2 className="font-bold text-zinc-100 text-xl">₹2,499</h2>
+          <h2 className="font-bold text-zinc-100 text-xl">₹{element.price}</h2>
           <Link
             className="text-black hover:text-blue-600 text-[12px] font-medium"
-            to={"/product/1"}
+            to={`detail/${element.id}`}
           >
             View Detial
           </Link>

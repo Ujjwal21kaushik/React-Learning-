@@ -1,22 +1,16 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
+import { ProductContext } from "../Context/ProductProvider";
 
 const ProductDetail = () => {
 
   const navigate = useNavigate();
+  const {id }= useParams();  // return object 
+  const {productdata} = useContext(ProductContext); 
+  
 
-   const product = {
-    name: "Smart watch",
-    brand: "Apple",
-    price: 1299,
-    description:
-      "Stay connected and track your everyday activities with style.",
-    color: "Black",
-    stock:20,
-    image:
-      "https://images.unsplash.com/photo-1594619273130-2eddf0503a5a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D"
-  };
+  const product = productdata.find((item) => item.id === Number(id))
 
   return (
     <div className="fixed inset-0 z-50 bg-black/40 flex items-center justify-center p-4">
@@ -71,12 +65,12 @@ const ProductDetail = () => {
               <p className="text-sm text-zinc-500">{product.color}</p>
             </div>
 
-            {product.sizes && (
+            {product.size && (
               <div className="mt-4">
                 <p className="text-sm font-semibold mb-2">Available Sizes</p>
 
                 <div className="flex gap-2 flex-wrap">
-                  {product.sizes.map((size) => (
+                  {product.size.map((size) => (
                     <span
                       key={size}
                       className="border border-zinc-300 rounded-lg px-3 py-1 text-sm"
