@@ -78,7 +78,7 @@ const ProductDetail = () => {
               <p className="text-sm text-zinc-500">{product.color}</p>
             </div>
 
-            {product.size && (
+            {product.size && product.size.length > 0 && (
               <div className="mt-4">
                 <p className="text-sm font-semibold mb-2">Available Sizes</p>
 

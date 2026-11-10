@@ -2,7 +2,7 @@ import React from "react";
 import { Link} from "react-router-dom";
 
 const Cards = ({element}) => {
-   
+    
   return (
     <div className="w-50 h-78 border border-zinc-300 rounded-2xl overflow-hidden">
       <div className="w-full h-42 bg-black p-2">
@@ -14,9 +14,9 @@ const Cards = ({element}) => {
       </div>
 
       <div className="w-full h-full bg-zinc-400 px-3 py-2">
-        <div className="w-fit h-fit bg-green-300 rounded-full px-2">
-          <span className="text-green-700 font-medium text-xs flex items-center justify-center">
-            In Stock
+        <div className="w-fit h-fit  rounded-full ">
+          <span className={`${element.stock > 0 ? "text-green-700 bg-green-300 " : "text-red-700 bg-red-100 "} rounded-full px-2 font-medium text-xs flex items-center justify-center`}>
+            {element.stock > 0 ?"In stock" : "Out of Stock"}
           </span>
         </div>
         <h1 className="text-white font-semibold my-1">{element.name}</h1>
