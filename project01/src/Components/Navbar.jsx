@@ -1,17 +1,23 @@
 import React from "react";
 import { Link, Outlet } from "react-router-dom";
 import Rightsidecontent from "./Rightsidecontent";
-import categories from "../data/categories";
+
 
 function Navbar() {
+  const categories = JSON.parse(localStorage.getItem("categories")) || [];
+  console.log(categories);
+  
   return (
     <div className="w-full min-h-screen flex justify-between gap-10">
 
       <div className="w-[15%] h-full bg-zinc-200 border-r border-white fixed left-0 top-0">
 
-        <div className="w-fit mt-4 m-auto">
-          <Link to="/create" className="px-4 py-2 bg-green-600 text-zinc-100 font-medium rounded" href="#">
-            Add product
+        <div className="w-full mt-4 flex items-center justify-between px-2">
+          <Link to="/create-product" className="p-2 text-[14px] bg-green-600 text-zinc-100 font-medium rounded">
+            Add Product
+          </Link>
+          <Link to="/create-category" className="p-2 text-[14px] bg-green-600 text-zinc-100 font-medium rounded" >
+            Add Category
           </Link>
         </div>
 

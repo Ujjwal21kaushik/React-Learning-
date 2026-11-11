@@ -1,12 +1,13 @@
 
 import { useContext, useState } from "react";
 import { ProductContext } from "../Context/ProductProvider";
-import categories from "../data/categories";
+
 import { toast } from "react-toastify";
 import { useNavigate, useParams } from "react-router-dom";
 
 const Editproduct = () => {
   const { productdata, setProductdata } = useContext(ProductContext);
+  const categories = JSON.parse(localStorage.getItem("categories")) || [];
   const navigate = useNavigate();
   const { id } = useParams();
 
