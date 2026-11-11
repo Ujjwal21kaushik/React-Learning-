@@ -143,7 +143,6 @@ const CreateProduct = () => {
               name="color"
               onChange={handleChange}
               placeholder="Product color"
-              required
             />
           </div>
 

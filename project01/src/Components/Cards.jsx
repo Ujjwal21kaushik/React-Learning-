@@ -21,7 +21,7 @@ const Cards = ({element}) => {
         </div>
         <h1 className="text-white font-semibold my-1">{element.name}</h1>
         <p className="text-zinc-300 leading-4 text-xs">
-          {element.description}
+          {element.description.length < 45 ? element.description : element.description.slice(0,45)+ " ..."}
         </p>
         <div className="flex items-center justify-between my-2 ">
           <h2 className="font-bold text-zinc-100 text-xl">₹{element.price}</h2>

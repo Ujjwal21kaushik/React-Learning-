@@ -87,7 +87,7 @@ const products = [
     price: 699,
     brand: "Ray-Ban",
     color: "Black",
-    stock: 0,
+    stock: 20,
     image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=500"
   },
   {

@@ -16,7 +16,8 @@ const categories = [
     name: "Accessories",
     slug: "accessories",
     color: "bg-blue-300"
-  }
+  },
+
 ];
 
 export default categories;

@@ -1,10 +1,11 @@
 import React, { useContext } from 'react'
 import Cards from './Cards'
 import {ProductContext} from "../Context/ProductProvider";
-import { useLocation, useSearchParams } from 'react-router-dom';
+import {useSearchParams } from 'react-router-dom';
 
 const Rightsidecontent = () => {
   const {productdata} = useContext(ProductContext);
+  // const productdata = JSON.parse(localStorage.getItem("products")) || [];
   const [searchParams] = useSearchParams();
 
   const categorySlug = searchParams.get("category");
@@ -27,8 +28,8 @@ const Rightsidecontent = () => {
           <h1 className='text-xl font-semibold'>{categorySlug === null ? "All Category" : categorySlug.toUpperCase()}</h1>
       </div>
 
-      <div className='absolute top-15 w-[85%] h-full z-1'>
-        <div className='w-[95%] h-fit m-auto mt-6 flex items-center justify-center gap-2 flex-wrap '>
+      <div className='absolute top-15 w-[85%] h-fit z-1 '>
+        <div className='w-[95%] h-full  m-auto my-6 flex items-center justify-center gap-2 flex-wrap '>
           {
             filteredProducts.map((ele) => (
 
