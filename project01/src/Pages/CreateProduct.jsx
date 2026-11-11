@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { ProductContext } from "../Context/ProductProvider";
 import categories from "../data/categories";
 import { toast } from "react-toastify";
@@ -40,7 +40,7 @@ const CreateProduct = () => {
         : [],
     };
 
-    setProductdata([...productdata, newProduct])
+    setProductdata([...productdata, newProduct]) // use to create new product
     toast.success("Product Created Successfully")
     navigate("/");
 

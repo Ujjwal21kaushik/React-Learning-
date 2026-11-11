@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { toast } from "react-toastify";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 import { ProductContext } from "../Context/ProductProvider";
 
@@ -26,11 +26,13 @@ const ProductDetail = () => {
     );
   }
   const deleteProduct = () => {
+    if(!window.confirm('Are you sure you want to delete this product')) return;
+
+
     const updatedProducts = productdata.filter(
       (item) => item.id !== Number(id),
     );
 
-    if(!window.confirm('Are you sure you want to delete this product')) return navigate("/");
      
     setProductdata(updatedProducts);
     toast.success("Deleted Succesfully")
@@ -98,9 +100,11 @@ const ProductDetail = () => {
         </div>
 
         <div className="border-t border-zinc-200 p-5 flex justify-end gap-3">
-          <button className="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
+          <Link 
+          to={`/detail/${id}/edit`}
+          className="px-5 py-2 rounded-lg bg-blue-600 text-white hover:bg-blue-700">
             Edit
-          </button>
+          </Link>
 
           <button
             onClick={deleteProduct}
