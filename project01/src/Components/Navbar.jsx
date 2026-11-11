@@ -5,7 +5,7 @@ import Rightsidecontent from "./Rightsidecontent";
 
 function Navbar() {
   const categories = JSON.parse(localStorage.getItem("categories")) || [];
-  console.log(categories);
+
   
   return (
     <div className="w-full min-h-screen flex justify-between gap-10">

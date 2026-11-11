@@ -3,6 +3,16 @@ import oldcategories from "../data/categories";
 import { useNavigate } from "react-router-dom";
 
 const Category = () => {
+  const colors = [
+    "bg-red-300",
+    "bg-blue-300",
+    "bg-green-300",
+    "bg-yellow-300",
+    "bg-pink-300",
+    "bg-purple-300",
+    "bg-orange-300",
+    "bg-indigo-300",
+  ];
     const navigate = useNavigate();
 
     const [categories, setcategories] = useState(() => {
@@ -13,7 +23,6 @@ const Category = () => {
 
         name:"",
         slug: "",
-        color: ""
     })
 
     const handleChange =(e)=>{
@@ -21,14 +30,14 @@ const Category = () => {
         setcategory({...category, [name]:value})
 
     }
-
+    const randomColor = colors[Math.floor(Math.random() * colors.length)];
     const handleSubmit =(e)=>{
         e.preventDefault();   
         
         const newCategory = {
             ...category,
             id: Date.now(),
-            color: category.color || "bg-zinc-600"
+            color: randomColor
         }
 
         const addCategory = [...categories, newCategory];
@@ -38,7 +47,6 @@ const Category = () => {
           setcategory({
             name: "",
             slug: "",
-            color: "",
         });
         navigate("/")
     }
@@ -95,28 +103,6 @@ const Category = () => {
           />
         </div>
 
-     
-        <div className="mb-8">
-          <label
-            htmlFor="color"
-            className="block text-sm font-medium text-zinc-600 mb-2"
-          >
-            Category Color
-          </label>
-
-          <input
-            type="text"
-            id="color"
-            name="color"
-            value={category.color}
-            onChange={handleChange}
-            placeholder="e.g. bg-blue-300"
-            className="w-full h-10 border border-zinc-300 rounded-lg px-3 outline-none focus:border-blue-500"
-            required
-          />
-        </div>
-
- 
         <div className="flex justify-center gap-4">
           <button
             type="button"
